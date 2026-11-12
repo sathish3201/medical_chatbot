@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#071521">
+    <title>MedNexus AI | Medical Intelligence</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="ambient ambient-one"></div>
+<div class="ambient ambient-two"></div>
+
+<main class="app">
+
+    <header class="topbar">
+        <div class="brand">
+            <div class="brand-icon">✚</div>
+            <div>
+                <h1>MedNexus <span>AI</span></h1>
+                <p>YOUR MEDICAL INTELLIGENCE COMPANION</p>
+            </div>
+        </div>
+        <div class="system-status">
+            <span class="status-dot"></span>
+            <span id="status">Checking...</span>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-label">✦ AI-POWERED MEDICAL KNOWLEDGE</div>
+        <h2>Understand health.<br><span>Make informed decisions.</span></h2>
+        <p>Ask questions, explore medical knowledge, and understand
+           information with AI-assisted research.</p>
+    </section>
+
+    <div class="notice">
+        <span>ⓘ</span>
+        Educational guidance only. Not a diagnosis. For severe symptoms,
+        contact emergency services.
+    </div>
+
+    <section class="chat-panel">
+        <div class="chat-heading">
+            <div>
+                <span class="eyebrow">CONVERSATION</span>
+                <h3>Medical Assistant</h3>
+            </div>
+            <span class="secure-label">● PRIVATE SESSION</span>
+        </div>
+
+        <section id="messages" aria-live="polite">
+            <article class="bot">
+                Hello! I'm your MedNexus AI assistant.
+                Ask a medical question, upload an image, or use your
+                microphone. I'll explain available information and
+                cite sources where possible.
+            </article>
+        </section>
+
+        <div id="preview" hidden>
+            <img id="thumbnail" alt="Selected image">
+            <button id="remove" type="button">Remove image ×</button>
+        </div>
+
+        <form id="chatForm">
+            <div class="input-shell">
+                <textarea
+                    id="message"
+                    placeholder="Ask anything about medical knowledge..."
+                    rows="2"
+                    required
+                    maxlength="4000"
+                ></textarea>
+
+                <div class="toolbar">
+                    <div class="attachment-tools">
+                        <label class="action" for="image">＋ Image</label>
+                        <input id="image" type="file"
+                               accept="image/png,image/jpeg,image/webp" hidden>
+
+                        <button class="action" id="camera" type="button">
+                            ◉ Camera
+                        </button>
+
+                        <button class="action" id="mic" type="button">
+                            🎙 Voice
+                        </button>
+
+                        <button class="action" id="listen" type="button">
+                            ◖ Read
+                        </button>
+                    </div>
+
+                    <button id="send" type="submit">
+                        Send <span>➜</span>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </section>
+
+    <details class="api-settings">
+        <summary>Advanced connection settings</summary>
+        <input id="token" type="password"
+               placeholder="API_TOKEN from .env">
+    </details>
+
+    <video id="video" autoplay playsinline hidden></video>
+
+    <div id="cameraActions" hidden>
+        <button id="snap" type="button">Capture</button>
+        <button id="closeCamera" type="button">Close camera</button>
+    </div>
+
+    <canvas id="canvas" hidden></canvas>
+
+    <footer>
+        <span>MEDNEXUS AI</span>
+        <span>Built for medical knowledge exploration</span>
+    </footer>
+
+</main>
+
+<script src="/static/app.js"></script>
+</body>
+</html>
